@@ -16,7 +16,7 @@ namespace RZPacketAnalyzer.Service
 
         public void ProcessRequest(Session session, byte[] data)
         {
-            RequestParser.Parse(RequestType.ClientAuth, data);
+            RequestParser.Parse(RequestType.AuthClient, data);
             Main.ClientSocket.SendPacket(Main.Client, data);
         }
     }
