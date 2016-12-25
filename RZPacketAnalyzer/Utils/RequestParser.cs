@@ -28,7 +28,7 @@ namespace RZPacketAnalyzer.Utils
         {
             ClientAuthPackets = new Dictionary<int, PacketStruct>();
 
-            ParsePacketStructFile("Data/Packets/CA.json", ClientAuthPackets)
+            ParsePacketStructFile("Data/Packets/CA.json", ClientAuthPackets);
         }
 
         private static void ParsePacketStructFile(string file, Dictionary<int, PacketStruct> dict)

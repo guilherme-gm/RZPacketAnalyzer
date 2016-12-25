@@ -52,13 +52,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses\ClientFactory.cs" />
+    <Compile Include="DataClasses\GameFactory.cs" />
     <Compile Include="DataClasses\PacketInfo.cs" />
     <Compile Include="DataClasses\PacketStruct.cs" />
+    <Compile Include="DataClasses\AuthFactory.cs" />
     <Compile Include="DataClasses\StructItem.cs" />
     <Compile Include="Service\AuthClientController.cs" />
     <Compile Include="Service\ClientAuthController.cs" />
     <Compile Include="Service\ClientGameController.cs" />
     <Compile Include="Service\GameClientController.cs" />
+    <Compile Include="Service\SocketService.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="UI\Main.cs">
       <SubType>Form</SubType>

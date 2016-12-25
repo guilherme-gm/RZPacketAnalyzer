@@ -1,6 +1,8 @@
 ﻿using Common.DataClasses;
 using Common.DataClasses.Network;
 using Common.Service;
+using RZPacketAnalyzer.UI;
+using RZPacketAnalyzer.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,8 @@ namespace RZPacketAnalyzer.Service
 
         public void ProcessRequest(Session session, byte[] data)
         {
-            Packet message;
-
-
+            RequestParser.Parse(RequestType.ClientAuth, data);
+            Main.AuthSocket.SendPacket(Main.Auth, data);
         }
     }
 }
