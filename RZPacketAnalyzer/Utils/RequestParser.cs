@@ -23,12 +23,21 @@ namespace RZPacketAnalyzer.Utils
     public static class RequestParser
     {
         public static Dictionary<int, PacketStruct> ClientAuthPackets;
+        public static Dictionary<int, PacketStruct> AuthClientPackets;
+        public static Dictionary<int, PacketStruct> ClientGamePackets;
+        public static Dictionary<int, PacketStruct> GameClientPackets;
 
         public static void Load()
         {
             ClientAuthPackets = new Dictionary<int, PacketStruct>();
+            AuthClientPackets = new Dictionary<int, PacketStruct>();
+            ClientGamePackets = new Dictionary<int, PacketStruct>();
+            GameClientPackets = new Dictionary<int, PacketStruct>();
 
             ParsePacketStructFile("Data/Packets/CA.json", ClientAuthPackets);
+            ParsePacketStructFile("Data/Packets/AC.json", AuthClientPackets);
+            ParsePacketStructFile("Data/Packets/CG.json", ClientAuthPackets);
+            ParsePacketStructFile("Data/Packets/GC.json", GameClientPackets);
         }
 
         private static void ParsePacketStructFile(string file, Dictionary<int, PacketStruct> dict)
@@ -84,7 +93,14 @@ namespace RZPacketAnalyzer.Utils
                 if (strItem.TryGetValue("@rewrite", out rewrite))
                 {
                     item.HasRewrite = true;
-                    item.Rewrite = rewrite.ToString();
+                    if (rewrite.ToString().StartsWith("$@"))
+                    {
+                        item.Rewrite = Settings.Variables[rewrite.ToString().Substring(2)];
+                    }
+                    else
+                    {
+                        item.Rewrite = rewrite.ToString();
+                    }
                 }
 
                 string[] paramList = StructItem.GetParameterByType(item._Type);
@@ -102,6 +118,9 @@ namespace RZPacketAnalyzer.Utils
         public static void Parse(RequestType type, byte[] data)
         {
             PacketInfo info = new PacketInfo();
+            info.Data = data;
+            info._Type = type;
+
             MemoryStream stream = new MemoryStream(data);
 
             using (BinaryReader reader = new BinaryReader(stream))
@@ -113,8 +132,6 @@ namespace RZPacketAnalyzer.Utils
                     ushort packetId = reader.ReadUInt16();
                     reader.ReadByte(); // checksum
 
-
-                    info._Type = type;
                     info.PacketId = packetId;
 
                     if (type == RequestType.ClientAuth)

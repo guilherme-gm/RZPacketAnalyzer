@@ -1,0 +1,18 @@
+{
+    "0x271A": {
+        "name": "CA_Account",
+        "struct":
+        [
+            {
+                "name": "username",
+                "type": "string",
+                "size": "61"
+            },
+            {
+                "name": "password",
+                "type": "string",
+                "size": "56"
+            }
+        ]
+    }
+}

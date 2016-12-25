@@ -30,13 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.grid_Packets = new System.Windows.Forms.DataGridView();
-            this.col_Dir = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Struct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Hex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Send = new System.Windows.Forms.Button();
@@ -49,6 +42,12 @@
             this.richText_Struct = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.richText_Hex = new System.Windows.Forms.RichTextBox();
+            this.col_Dir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Struct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_Packets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -84,58 +83,14 @@
             this.col_Name,
             this.col_Size,
             this.col_Data,
-            this.col_Struct,
-            this.col_Hex});
+            this.col_Struct});
             this.grid_Packets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_Packets.Location = new System.Drawing.Point(3, 16);
+            this.grid_Packets.MultiSelect = false;
             this.grid_Packets.Name = "grid_Packets";
             this.grid_Packets.Size = new System.Drawing.Size(552, 171);
             this.grid_Packets.TabIndex = 0;
-            // 
-            // col_Dir
-            // 
-            this.col_Dir.HeaderText = "Direction";
-            this.col_Dir.Name = "col_Dir";
-            this.col_Dir.ReadOnly = true;
-            // 
-            // col_ID
-            // 
-            this.col_ID.HeaderText = "ID";
-            this.col_ID.Name = "col_ID";
-            this.col_ID.ReadOnly = true;
-            // 
-            // col_Name
-            // 
-            this.col_Name.HeaderText = "Name";
-            this.col_Name.Name = "col_Name";
-            this.col_Name.ReadOnly = true;
-            // 
-            // col_Size
-            // 
-            this.col_Size.HeaderText = "Size";
-            this.col_Size.Name = "col_Size";
-            this.col_Size.ReadOnly = true;
-            // 
-            // col_Data
-            // 
-            this.col_Data.HeaderText = "Data";
-            this.col_Data.Name = "col_Data";
-            this.col_Data.ReadOnly = true;
-            this.col_Data.Visible = false;
-            // 
-            // col_Struct
-            // 
-            this.col_Struct.HeaderText = "Struct";
-            this.col_Struct.Name = "col_Struct";
-            this.col_Struct.ReadOnly = true;
-            this.col_Struct.Visible = false;
-            // 
-            // col_Hex
-            // 
-            this.col_Hex.HeaderText = "Hex";
-            this.col_Hex.Name = "col_Hex";
-            this.col_Hex.ReadOnly = true;
-            this.col_Hex.Visible = false;
+            this.grid_Packets.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_Packets_CellContentClick);
             // 
             // splitContainer1
             // 
@@ -273,6 +228,44 @@
             this.richText_Hex.TabIndex = 0;
             this.richText_Hex.Text = "";
             // 
+            // col_Dir
+            // 
+            this.col_Dir.HeaderText = "Direction";
+            this.col_Dir.Name = "col_Dir";
+            this.col_Dir.ReadOnly = true;
+            // 
+            // col_ID
+            // 
+            this.col_ID.HeaderText = "ID";
+            this.col_ID.Name = "col_ID";
+            this.col_ID.ReadOnly = true;
+            // 
+            // col_Name
+            // 
+            this.col_Name.HeaderText = "Name";
+            this.col_Name.Name = "col_Name";
+            this.col_Name.ReadOnly = true;
+            // 
+            // col_Size
+            // 
+            this.col_Size.HeaderText = "Size";
+            this.col_Size.Name = "col_Size";
+            this.col_Size.ReadOnly = true;
+            // 
+            // col_Data
+            // 
+            this.col_Data.HeaderText = "Data";
+            this.col_Data.Name = "col_Data";
+            this.col_Data.ReadOnly = true;
+            this.col_Data.Visible = false;
+            // 
+            // col_Struct
+            // 
+            this.col_Struct.HeaderText = "Struct";
+            this.col_Struct.Name = "col_Struct";
+            this.col_Struct.ReadOnly = true;
+            this.col_Struct.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,7 +311,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Size;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Struct;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Hex;
     }
 }
 
