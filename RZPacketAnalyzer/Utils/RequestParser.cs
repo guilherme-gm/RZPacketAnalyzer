@@ -80,6 +80,13 @@ namespace RZPacketAnalyzer.Utils
                     default: MessageBox.Show(string.Format("Invalid {0} type", type)); continue;
                 }
 
+                JToken rewrite;
+                if (strItem.TryGetValue("@rewrite", out rewrite))
+                {
+                    item.HasRewrite = true;
+                    item.Rewrite = rewrite.ToString();
+                }
+
                 string[] paramList = StructItem.GetParameterByType(item._Type);
                 foreach(string par in paramList)
                 {
@@ -94,35 +101,44 @@ namespace RZPacketAnalyzer.Utils
 
         public static void Parse(RequestType type, byte[] data)
         {
-            BinaryReader reader = new BinaryReader(new MemoryStream(data));
-            int length = reader.ReadInt32();
-            ushort packetId = reader.ReadUInt16();
-            reader.ReadByte(); // checksum
-
             PacketInfo info = new PacketInfo();
-            info._Type = type;
-            info.PacketId = packetId;
+            MemoryStream stream = new MemoryStream(data);
 
-            if (type == RequestType.ClientAuth)
+            using (BinaryReader reader = new BinaryReader(stream))
             {
-                PacketStruct str;
-                if (ClientAuthPackets.TryGetValue(packetId, out str))
+                using (BinaryWriter writer = new BinaryWriter(stream))
                 {
-                    info.Name = str.Name;
-                    info.Struct = ParseStruct(str.Struct, reader);
+
+                    int length = reader.ReadInt32();
+                    ushort packetId = reader.ReadUInt16();
+                    reader.ReadByte(); // checksum
+
+
+                    info._Type = type;
+                    info.PacketId = packetId;
+
+                    if (type == RequestType.ClientAuth)
+                    {
+                        PacketStruct str;
+                        if (ClientAuthPackets.TryGetValue(packetId, out str))
+                        {
+                            info.Name = str.Name;
+                            info.Struct = ParseStruct(str.Struct, reader, writer);
+                        }
+                    }
                 }
             }
 
             Main.OnPacketReceive(info);
         }
 
-        private static string ParseStruct(List<StructItem> structInfo, BinaryReader reader)
+        private static string ParseStruct(List<StructItem> structInfo, BinaryReader reader, BinaryWriter writer)
         {
             StringBuilder str = new StringBuilder();
 
             foreach(StructItem item in structInfo)
             {
-                str.Append(item.Parse(reader));
+                str.Append(item.Parse(reader, writer));
             }
 
             return str.ToString();
