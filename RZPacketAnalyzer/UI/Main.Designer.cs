@@ -42,6 +42,13 @@
             this.richText_Struct = new System.Windows.Forms.RichTextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.richText_Hex = new System.Windows.Forms.RichTextBox();
+            this.col_Dir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Struct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Hex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_Packets)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -68,7 +75,16 @@
             // 
             // grid_Packets
             // 
+            this.grid_Packets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid_Packets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_Packets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_Dir,
+            this.col_ID,
+            this.col_Name,
+            this.col_Size,
+            this.col_Data,
+            this.col_Struct,
+            this.col_Hex});
             this.grid_Packets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_Packets.Location = new System.Drawing.Point(3, 16);
             this.grid_Packets.Name = "grid_Packets";
@@ -145,6 +161,7 @@
             this.btn_StartStop.TabIndex = 0;
             this.btn_StartStop.Text = "Start";
             this.btn_StartStop.UseVisualStyleBackColor = true;
+            this.btn_StartStop.Click += new System.EventHandler(this.btn_StartStop_Click);
             // 
             // groupBox2
             // 
@@ -210,6 +227,51 @@
             this.richText_Hex.TabIndex = 0;
             this.richText_Hex.Text = "";
             // 
+            // col_Dir
+            // 
+            this.col_Dir.HeaderText = "Direction";
+            this.col_Dir.Name = "col_Dir";
+            this.col_Dir.ReadOnly = true;
+            // 
+            // col_ID
+            // 
+            this.col_ID.HeaderText = "ID";
+            this.col_ID.Name = "col_ID";
+            this.col_ID.ReadOnly = true;
+            // 
+            // col_Name
+            // 
+            this.col_Name.HeaderText = "Name";
+            this.col_Name.Name = "col_Name";
+            this.col_Name.ReadOnly = true;
+            // 
+            // col_Size
+            // 
+            this.col_Size.HeaderText = "Size";
+            this.col_Size.Name = "col_Size";
+            this.col_Size.ReadOnly = true;
+            // 
+            // col_Data
+            // 
+            this.col_Data.HeaderText = "Data";
+            this.col_Data.Name = "col_Data";
+            this.col_Data.ReadOnly = true;
+            this.col_Data.Visible = false;
+            // 
+            // col_Struct
+            // 
+            this.col_Struct.HeaderText = "Struct";
+            this.col_Struct.Name = "col_Struct";
+            this.col_Struct.ReadOnly = true;
+            this.col_Struct.Visible = false;
+            // 
+            // col_Hex
+            // 
+            this.col_Hex.HeaderText = "Hex";
+            this.col_Hex.Name = "col_Hex";
+            this.col_Hex.ReadOnly = true;
+            this.col_Hex.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +311,13 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RichTextBox richText_Struct;
         private System.Windows.Forms.RichTextBox richText_Hex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Dir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Struct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Hex;
     }
 }
 
