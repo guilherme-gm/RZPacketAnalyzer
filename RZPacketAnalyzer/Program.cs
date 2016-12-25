@@ -16,6 +16,7 @@ namespace RZPacketAnalyzer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Settings.Load();
             Application.Run(new UI.Main());
         }
     }

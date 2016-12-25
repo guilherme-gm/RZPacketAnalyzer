@@ -29,21 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_AuthIp = new System.Windows.Forms.TextBox();
+            this.txt_AuthPort = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_ClientPort = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_ClientIp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grid_CustomSettings = new System.Windows.Forms.DataGridView();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.col_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_Save = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_CustomSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -55,19 +54,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Auth IP:";
             // 
-            // textBox1
+            // txt_AuthIp
             // 
-            this.textBox1.Location = new System.Drawing.Point(63, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 20);
-            this.textBox1.TabIndex = 1;
+            this.txt_AuthIp.Location = new System.Drawing.Point(63, 38);
+            this.txt_AuthIp.Name = "txt_AuthIp";
+            this.txt_AuthIp.Size = new System.Drawing.Size(114, 20);
+            this.txt_AuthIp.TabIndex = 1;
             // 
-            // textBox2
+            // txt_AuthPort
             // 
-            this.textBox2.Location = new System.Drawing.Point(263, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(70, 20);
-            this.textBox2.TabIndex = 3;
+            this.txt_AuthPort.Location = new System.Drawing.Point(263, 38);
+            this.txt_AuthPort.Name = "txt_AuthPort";
+            this.txt_AuthPort.Size = new System.Drawing.Size(70, 20);
+            this.txt_AuthPort.TabIndex = 3;
             // 
             // label2
             // 
@@ -78,12 +77,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Auth Port:";
             // 
-            // textBox3
+            // txt_ClientPort
             // 
-            this.textBox3.Location = new System.Drawing.Point(263, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(70, 20);
-            this.textBox3.TabIndex = 7;
+            this.txt_ClientPort.Location = new System.Drawing.Point(263, 12);
+            this.txt_ClientPort.Name = "txt_ClientPort";
+            this.txt_ClientPort.Size = new System.Drawing.Size(70, 20);
+            this.txt_ClientPort.TabIndex = 7;
             // 
             // label3
             // 
@@ -94,12 +93,12 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Client Port:";
             // 
-            // textBox4
+            // txt_ClientIp
             // 
-            this.textBox4.Location = new System.Drawing.Point(63, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(114, 20);
-            this.textBox4.TabIndex = 5;
+            this.txt_ClientIp.Location = new System.Drawing.Point(63, 12);
+            this.txt_ClientIp.Name = "txt_ClientIp";
+            this.txt_ClientIp.Size = new System.Drawing.Size(114, 20);
+            this.txt_ClientIp.TabIndex = 5;
             // 
             // label4
             // 
@@ -112,7 +111,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.grid_CustomSettings);
             this.groupBox1.Location = new System.Drawing.Point(12, 76);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(460, 330);
@@ -120,19 +119,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Custom Settings";
             // 
-            // dataGridView1
+            // grid_CustomSettings
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grid_CustomSettings.AllowUserToAddRows = false;
+            this.grid_CustomSettings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_CustomSettings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_CustomSettings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_Name,
-            this.col_Value,
-            this.col_Desc});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(454, 311);
-            this.dataGridView1.TabIndex = 0;
+            this.col_Value});
+            this.grid_CustomSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_CustomSettings.Location = new System.Drawing.Point(3, 16);
+            this.grid_CustomSettings.Name = "grid_CustomSettings";
+            this.grid_CustomSettings.Size = new System.Drawing.Size(454, 311);
+            this.grid_CustomSettings.TabIndex = 0;
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(394, 15);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(75, 23);
+            this.btn_Save.TabIndex = 9;
+            this.btn_Save.Text = "Save";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // col_Name
             // 
@@ -145,21 +154,6 @@
             this.col_Value.HeaderText = "Value";
             this.col_Value.Name = "col_Value";
             // 
-            // col_Desc
-            // 
-            this.col_Desc.HeaderText = "Description";
-            this.col_Desc.Name = "col_Desc";
-            this.col_Desc.ReadOnly = true;
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Location = new System.Drawing.Point(394, 15);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(75, 23);
-            this.btn_Save.TabIndex = 9;
-            this.btn_Save.Text = "Save";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,13 +161,13 @@
             this.ClientSize = new System.Drawing.Size(484, 418);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_ClientPort);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_ClientIp);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_AuthPort);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_AuthIp);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -182,7 +176,7 @@
             this.Text = "Settings";
             this.Load += new System.EventHandler(this.Options_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_CustomSettings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,18 +185,17 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_AuthIp;
+        private System.Windows.Forms.TextBox txt_AuthPort;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_ClientPort;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_ClientIp;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grid_CustomSettings;
+        private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Value;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Desc;
-        private System.Windows.Forms.Button btn_Save;
     }
 }

@@ -1,0 +1,7 @@
+{
+    "client_ip": "127.0.0.1",
+    "client_port": "4441",
+    "auth_ip": "127.0.0.1",
+    "auth_port": "4442",
+    "custom": {}
+}
